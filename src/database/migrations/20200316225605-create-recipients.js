@@ -1,7 +1,6 @@
-// must delete this one, after use the code here
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('recipients', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -14,16 +13,30 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
       },
-      password_hash: {
+      street_name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      provider: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      house_number: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      complement: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      state: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      city: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      postal_code: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       created_at: {
@@ -38,6 +51,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('recipients');
   },
 };

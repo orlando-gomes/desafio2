@@ -1,1 +1,16 @@
 Desafio 2 do Gostack. Iniciando o backend do GoBarber.
+
+Migrations:
+$ yarn sequelize migration:create --name=create-users
+
+Seeds:
+$ yarn sequelize seed:generate --name= admin-user
+$ yarn sequelize db:seed:all
+
+- Administrador criado por seed
+- Criada a sessão do usuário
+- Criado o middleware de autencicação do usuário
+- Criada tabela de destinatários
+- método store() do RecipientController já está funcionando
+VALIDAR DADOS DE ENTRADA
+CRIAR UPDATE DE RecipientController
