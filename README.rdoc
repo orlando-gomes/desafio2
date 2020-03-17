@@ -12,5 +12,5 @@ $ yarn sequelize db:seed:all
 - Criado o middleware de autencicação do usuário
 - Criada tabela de destinatários
 - método store() do RecipientController já está funcionando
-VALIDAR DADOS DE ENTRADA
-CRIAR UPDATE DE RecipientController
+- Feita a validação dos dados de entrada
+CRIANDO UPDATE DE RecipientController

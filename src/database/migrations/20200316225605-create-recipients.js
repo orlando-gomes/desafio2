@@ -14,6 +14,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: true,
+        unique: true,
       },
       street_name: {
         type: Sequelize.STRING,
