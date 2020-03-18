@@ -12,4 +12,6 @@ routs.use(midAuth);
 
 routs.post('/recipients', RecipientController.store);
 
+routs.put('/recipients/:id', RecipientController.update);
+
 export default routs;

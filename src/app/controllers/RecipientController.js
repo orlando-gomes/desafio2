@@ -54,7 +54,7 @@ class RecipientController {
       postal_code,
     });
   }
-  /*
+
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
@@ -72,17 +72,19 @@ class RecipientController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const recipientId = req.params.id;
+    const recipient = await Recipient.findByPk(req.params.id);
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Invalid id' });
+    }
 
     const emailExists = await Recipient.findOne({
       where: { email: req.body.email },
     });
 
-    if (emailExists && recipientId !== emailExists.id) {
+    if (emailExists && recipient.email !== emailExists.email) {
       return res.status(400).json({ error: 'Email already exists' });
     }
-
-    const recipient = await Recipient.create(req.body);
 
     const {
       id,
@@ -94,7 +96,7 @@ class RecipientController {
       city,
       state,
       postal_code,
-    } = recipient;
+    } = await recipient.update(req.body);
 
     return res.json({
       id,
@@ -108,7 +110,6 @@ class RecipientController {
       postal_code,
     });
   }
-  */
 }
 
 export default new RecipientController();
